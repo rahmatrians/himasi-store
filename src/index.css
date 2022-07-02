@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,4 +16,42 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@layer components {
+  .md-title1 {
+    @apply font-Inter font-bold text-[28px];
+  }
+
+  .title1 {
+    @apply font-Inter font-bold text-[16px];
+  }
+
+  .md-header1 {
+    @apply font-Inter font-bold text-[45px];
+  }
+
+  .md-paragraph1 {
+    @apply font-Inter font-semibold text-[18px];
+  }
+
+  .md-subTitle1 {
+    @apply font-Inter font-extrabold text-[22px];
+  }
+
+  .md-label1 {
+    @apply font-Inter font-semibold text-[14px];
+  }
+
+  .md-label2 {
+    @apply font-Inter font-semibold text-[10px];
+  }
+
+  .text-secColor {
+    @apply text-[#385768];
+  }
+
+  .bg-hover {
+    @apply bg-[#e6edf1] rounded-[10px];
+  }
 }

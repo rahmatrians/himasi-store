@@ -35,7 +35,7 @@ function App() {
               <a className="btn btn-ghost normal-case text-xl" > HIMASI STORE</a >
             </div >
             <div className="navbar-center hidden lg:flex" >
-              <input type="text" placeholder="Type here" className="input rounded-full text-center input-bordered w-[50rem]" />
+              <input type="text" placeholder="Mau cari apa hari ini?" className="input rounded-full text-center input-bordered w-[50rem]" />
               {/* <ul className="menu menu-horizontal p-0" >
                 <li><a>Item 1</a></li>
                 <li tabIndex="0">
@@ -52,7 +52,7 @@ function App() {
               </ul > */}
             </div >
             <div className="navbar-end" >
-              <button className="btn btn-ghost btn-circle " >
+              <button className="btn btn-ghost btn-circle" >
                 <img src={Trolly} width='24' />
               </button >
               <button className="btn btn-ghost btn-circle" >
@@ -67,53 +67,91 @@ function App() {
       </nav >
       {/* end of navigation */}
 
-      <div className='mt-20 container mx-auto'>
+      <section className='md:mt-20 mt-10'>
+        <div className='container mx-auto'>
+          {/* banner */}
+          <div class="carousel md:rounded-[40px] rounded-lg md:h-96 h-40">
+            <div id="slide1" class="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
+              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide4" class="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide2" class="btn bg-white btn-circle text-gray-900">❯</a>
+              </div>
+            </div>
+            <div id="slide2" class="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
+              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide1" class="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide3" class="btn bg-white btn-circle text-gray-900">❯</a>
+              </div>
+            </div>
+            <div id="slide3" class="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
+              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide2" class="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide4" class="btn bg-white btn-circle text-gray-900">❯</a>
+              </div>
+            </div>
+            <div id="slide4" class="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
+              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide3" class="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide1" class="btn bg-white btn-circle text-gray-900">❯</a>
+              </div>
+            </div>
+          </div>
+          {/* end of banner */}
 
-        {/* banner */}
-        <div class="carousel rounded-[40px] w-full">
-          <div id="slide1" class="carousel-item relative w-full">
-            <img src="https://placeimg.com/800/200/arch" class="w-full" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide4" class="btn btn-circle">❮</a>
-              <a href="#slide2" class="btn btn-circle">❯</a>
-            </div>
+          {/* category shortcut */}
+          <div className="mt-12 py-14 px-16 flex justify-center h-[85px] rounded-[40px] whitespace-nowrap md:gap-x-10 items-center shadow-xl shadow-blue-50">
+            <a href='' className='flex gap-x-4 hover:bg-hover py-1 px-6 place-content-center'><img src={Image} /><p className='font-Inter md:md-title1 title1 text-secColor'>Semua Kategori</p></a>
+            <a><p className='text-secColor'>|</p></a>
+            <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='font-Inter md:md-title1 title1 text-secColor'>Software</p></a>
+            <a><p className='text-secColor'>|</p></a>
+            <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='font-Inter md:md-title1 title1 text-secColor'>Gadget</p></a>
+            <a><p className='text-secColor'>|</p></a>
+            <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='font-Inter md:md-title1 title1 text-secColor'>Pakaian</p></a>
+            <a><p className='text-secColor'>|</p></a>
+            <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='font-Inter md:md-title1 title1 text-secColor'>Alat Tulis</p></a>
           </div>
-          <div id="slide2" class="carousel-item relative w-full">
-            <img src="https://placeimg.com/800/200/arch" class="w-full" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide1" class="btn btn-circle">❮</a>
-              <a href="#slide3" class="btn btn-circle">❯</a>
-            </div>
+          {/* end of category shortcut */}
+        </div>
+      </section>
+
+      <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
+        <div className='container flex flex-row md:py-[180px] mx-auto'>
+          <div className='md:basis-5/12 basis-4/12'>
+            <p className='md:md-header1 mb-2'>Flash Deal</p>
+            <p className='font-reguler text-[28px] mb-2'>Berakhir Dalam</p>
+            <p className='md:md-header1 mb-2'>01 : 44 : 07</p>
           </div>
-          <div id="slide3" class="carousel-item relative w-full">
-            <img src="https://placeimg.com/800/200/arch" class="w-full" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide2" class="btn btn-circle">❮</a>
-              <a href="#slide4" class="btn btn-circle">❯</a>
-            </div>
-          </div>
-          <div id="slide4" class="carousel-item relative w-full">
-            <img src="https://placeimg.com/800/200/arch" class="w-full" />
-            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-              <a href="#slide3" class="btn btn-circle">❮</a>
-              <a href="#slide1" class="btn btn-circle">❯</a>
+          <div className='md:basis-7/12 basis-8/12'>
+            <div class="card p-4 pb-6 rounded-[30px] w-[300px] bg-base-100 shadow-xl shadow-blue-100">
+              <figure class="">
+                <img src="https://placeimg.com/400/400/arch" alt="Shoes" class="rounded-2xl" />
+                <div class="absolute flex justify-between right-8 top-8">
+                  <span className='bg-white rounded-full shadow-md  p-3'>OO</span>
+                </div>
+              </figure>
+              <div class="mt-6 grid gap-y-2">
+                <p class="md-paragraph1 text-secColor">Blackmores Multivitamins + Minerals</p>
+                <span>
+                  <p class="md-subTitle1 text-secColor">Rp17.000</p>
+                  <span className='flex gap-x-2'>
+                    <p class="md-label1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
+                    <p class="px-2 py-1 rounded-md bg-[#FFDBE2] md-label2 text-[#F94D6B]">50%</p>
+                  </span>
+                </span>
+                <span className='flex gap-x-2'>
+                  <p class="md-label1 text-secColor opacity-[.55]">4.8</p>
+                  <p class="md-label1 text-secColor opacity-[.55]">|</p>
+                  <p class="md-label1 text-secColor opacity-[.55]">Terjual 680 kali</p>
+                </span>
+              </div>
             </div>
           </div>
         </div>
-        {/* end of banner */}
-
-        <div className="mt-12 py-14 px-16 flex justify-center h-[85px] rounded-[40px] bg-red-300 flex items-center shadow-xl shadow-blue-50">
-          <span className='flex gap-x-4'><img src={Image} /><p>Semua Kategori</p></span>
-          <span className='mx-8'><p>|</p></span>
-          <span className='flex gap-x-4'><img src={Image} /><p>Software</p></span>
-          <span className='mx-8'><p>|</p></span>
-          <span className='flex gap-x-4'><img src={Image} /><p>Gadget</p></span>
-          <span className='mx-8'><p>|</p></span>
-          <span className='flex gap-x-4'><img src={Image} /><p>Pakaian</p></span>
-          <span className='mx-8'><p>|</p></span>
-          <span className='flex gap-x-4'><img src={Image} /><p>Alat Tulis</p></span>
-        </div>
-      </div>
+      </section>
     </>
   )
 }
