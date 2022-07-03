@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import Card from './components/Card/Index'
+
 import Image from './assets/iconly/Image.svg'
 import Notification from './assets/iconly/Notification.svg'
 import Trolly from './assets/iconly/Trolly.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  let x = [5, 5, 5];
 
   return (
     <>
@@ -70,33 +73,33 @@ function App() {
       <section className='md:mt-20 mt-10'>
         <div className='container mx-auto'>
           {/* banner */}
-          <div class="carousel md:rounded-[40px] rounded-lg md:h-96 h-40">
-            <div id="slide1" class="carousel-item relative w-full md:overflow-hidden">
-              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
-              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide4" class="btn bg-white btn-circle text-gray-900">❮</a>
-                <a href="#slide2" class="btn bg-white btn-circle text-gray-900">❯</a>
+          <div className="carousel md:rounded-[40px] rounded-lg md:h-96 h-40">
+            <div id="slide1" className="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide4" className="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide2" className="btn bg-white btn-circle text-gray-900">❯</a>
               </div>
             </div>
-            <div id="slide2" class="carousel-item relative w-full md:overflow-hidden">
-              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
-              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide1" class="btn bg-white btn-circle text-gray-900">❮</a>
-                <a href="#slide3" class="btn bg-white btn-circle text-gray-900">❯</a>
+            <div id="slide2" className="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide1" className="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide3" className="btn bg-white btn-circle text-gray-900">❯</a>
               </div>
             </div>
-            <div id="slide3" class="carousel-item relative w-full md:overflow-hidden">
-              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
-              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" class="btn bg-white btn-circle text-gray-900">❮</a>
-                <a href="#slide4" class="btn bg-white btn-circle text-gray-900">❯</a>
+            <div id="slide3" className="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide2" className="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide4" className="btn bg-white btn-circle text-gray-900">❯</a>
               </div>
             </div>
-            <div id="slide4" class="carousel-item relative w-full md:overflow-hidden">
-              <img src="https://placeimg.com/800/400/arch" class="w-screen md:h-fit" />
-              <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide3" class="btn bg-white btn-circle text-gray-900">❮</a>
-                <a href="#slide1" class="btn bg-white btn-circle text-gray-900">❯</a>
+            <div id="slide4" className="carousel-item relative w-full md:overflow-hidden">
+              <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
+              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide3" className="btn bg-white btn-circle text-gray-900">❮</a>
+                <a href="#slide1" className="btn bg-white btn-circle text-gray-900">❯</a>
               </div>
             </div>
           </div>
@@ -119,35 +122,19 @@ function App() {
       </section>
 
       <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
-        <div className='container flex flex-row md:py-[180px] mx-auto'>
-          <div className='md:basis-5/12 basis-4/12'>
-            <p className='md:md-header1 mb-2'>Flash Deal</p>
+        <div className='container grid grid-cols-5 md:py-[180px] mx-auto'>
+          <div className='col-span-2'>
+            <p className='md:md-header1 mb-2 animate-bounce'>Flash Deal</p>
             <p className='font-reguler text-[28px] mb-2'>Berakhir Dalam</p>
             <p className='md:md-header1 mb-2'>01 : 44 : 07</p>
+            <button className="btn pb-[70px] pt-[60px] px-[70px] rounded-[40px] bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='md-title1 font-semibold text-white capitalize'>Lihat Semua</p></button>
           </div>
-          <div className='md:basis-7/12 basis-8/12'>
-            <div class="card p-4 pb-6 rounded-[30px] w-[300px] bg-base-100 shadow-xl shadow-blue-100">
-              <figure class="">
-                <img src="https://placeimg.com/400/400/arch" alt="Shoes" class="rounded-2xl" />
-                <div class="absolute flex justify-between right-8 top-8">
-                  <span className='bg-white rounded-full shadow-md  p-3'>OO</span>
-                </div>
-              </figure>
-              <div class="mt-6 grid gap-y-2">
-                <p class="md-paragraph1 text-secColor">Blackmores Multivitamins + Minerals</p>
-                <span>
-                  <p class="md-subTitle1 text-secColor">Rp17.000</p>
-                  <span className='flex gap-x-2'>
-                    <p class="md-label1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
-                    <p class="px-2 py-1 rounded-md bg-[#FFDBE2] md-label2 text-[#F94D6B]">50%</p>
-                  </span>
-                </span>
-                <span className='flex gap-x-2'>
-                  <p class="md-label1 text-secColor opacity-[.55]">4.8</p>
-                  <p class="md-label1 text-secColor opacity-[.55]">|</p>
-                  <p class="md-label1 text-secColor opacity-[.55]">Terjual 680 kali</p>
-                </span>
-              </div>
+          <div className='col-span-3'>
+            <div className='flex gap-x-6'>
+              {x.map((val, idx) => (
+                <Card key={idx} />
+              )
+              )}
             </div>
           </div>
         </div>
