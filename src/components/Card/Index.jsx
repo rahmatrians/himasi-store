@@ -15,19 +15,17 @@ function Card() {
                     </figure>
                     <div className="mt-6 grid gap-y-2">
                         <p className="md:md-paragraph1 sm-paragraph1 text-secColor">Blackmores Multivitamins + Minerals</p>
-                        <span>
+                        <span className='whitespace-nowrap'>
                             <p className="md:md-subTitle1 sm-subTitle1 text-secColor">Rp17.000</p>
                             <span className='flex gap-x-2'>
                                 <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
                                 <p className="px-2 py-1 rounded-md bg-[#FFDBE2] lg-label2 text-[#F94D6B]">50%</p>
                             </span>
                         </span>
-                        <span className='flex md:gap-x-2 gap-x-1'>
-                            <span className='flex gap-x-1'>
-                                <img src={Star} className='w-3 lg:w-4' />
-                                <p className="lg:lg-label1 md:md-label1 sm-label1 text-secColor opacity-[.55]">4.8</p>
-                            </span>
-                            <p className="lg:lg-label1 md:md-label1 sm-label1 text-secColor opacity-[.55]">|</p>
+                        <span className='flex md:gap-x-2 gap-x-1 mr-4 whitespace-nowrap'>
+                            <img src={Star} className='w-3 lg:w-4' />
+                            <p className="lg:lg-label1 md:md-label1 sm-label1 text-secColor opacity-[.55]">4.8</p>
+                            <p className="lg:lg-label1 sm-label1 text-secColor opacity-[.55]">|</p>
                             <p className="lg:lg-label1 md:md-label1 sm-label1 text-secColor opacity-[.55]">Terjual 680 kali</p>
                         </span>
                     </div>

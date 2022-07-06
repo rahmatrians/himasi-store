@@ -18,9 +18,21 @@ code {
     monospace;
 }
 
+.scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
 @layer components {
-  .md-title1 {
+  .lg-title1 {
     @apply font-Inter font-bold text-[28px];
+  }
+
+  .md-title1 {
+    @apply font-Inter font-bold text-[20px];
   }
 
   .title1 {
@@ -45,6 +57,15 @@ code {
 
   .sm-paragraph1 {
     @apply font-Inter font-semibold text-[14px];
+  }
+
+  .md-paragraph2 {
+    @apply font-Inter font-light text-[18px];
+  }
+
+  
+  .sm-paragraph2 {
+    @apply font-Inter font-light text-[14px];
   }
 
   .md-subTitle1 {
@@ -77,5 +98,9 @@ code {
 
   .bg-hover {
     @apply bg-[#e6edf1] rounded-[10px];
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-r from-[#FF3A75] to-[#FF6E5A];
   }
 }

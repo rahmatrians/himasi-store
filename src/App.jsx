@@ -16,10 +16,17 @@ const OnTablet = ({ children }) => {
   const tablet = useMediaQuery({ minWidth: 641, maxWidth: 768 })
   return tablet ? children : null
 }
+
 const OnNotebook = ({ children }) => {
   const notebook = useMediaQuery({ minWidth: 641, maxWidth: 768 })
   return notebook ? children : null
 }
+
+const OnAtLeastNotebook = ({ children }) => {
+  const notebook = useMediaQuery({ minWidth: 641 })
+  return notebook ? children : null
+}
+
 const OnDesktop = ({ children }) => {
   const desktop = useMediaQuery({ minWidth: 1024 })
   return desktop ? children : null
@@ -28,7 +35,7 @@ const OnDesktop = ({ children }) => {
 
 function App() {
   const [count, setCount] = useState(0);
-  let x = [5, 5, 5];
+  let x = [5, 5, 5, 5];
   let y = [2, 2, 2, 2, 2, 2, 2, 2, 2];
 
   // const layout = layoutGenerator({
@@ -144,15 +151,15 @@ function App() {
             {/* category shortcut */}
             <OnDesktop>
               <div className="mt-12 py-14 px-16 flex justify-center h-[85px] rounded-[40px] whitespace-nowrap md:gap-x-10 items-center shadow-xl shadow-blue-50">
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:md-title1 title1 text-secColor'>Semua Kategori</p></a>
+                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Semua Kategori</p></a>
                 <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:md-title1 title1 text-secColor'>Software</p></a>
+                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Software</p></a>
                 <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:md-title1 title1 text-secColor'>Gadget</p></a>
+                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Gadget</p></a>
                 <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:md-title1 title1 text-secColor'>Pakaian</p></a>
+                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Pakaian</p></a>
                 <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:md-title1 title1 text-secColor'>Alat Tulis</p></a>
+                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Alat Tulis</p></a>
               </div>
             </OnDesktop>
             <>
@@ -184,18 +191,20 @@ function App() {
         </div>
       </section>
 
-      {/* <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
-        <div className='container grid grid-cols-5 md:py-[180px] mx-auto'>
-          <div className='col-span-2 grid content-between'>
-            <div>
-              <p className='lg:lg-header1 md:md-header1 mb-2 animate-bounce text-secColor'>Flash Deal</p>
-              <p className='font-reguler text-[28px] mb-2 text-secColor opacity-[.55]'>Berakhir Dalam</p>
-              <p className='lg:lg-header1 md:md-header1 mb-2 text-secColor'>01 : 44 : 07</p>
+      <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
+        <div className='container grid md:grid-cols-5 md:py-[180px] py-4 md:pt-0 pt-12 mx-auto'>
+          <div className='md:col-span-2 mx-4 md:mx-0 grid grid-cols-6 md:grid-cols-none content-between'>
+            <div className='col-span-3'>
+              <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-8 animate-bounce text-secColor'>Flash Deal</p>
+              <p className='lg:lg-title1 md:lg-title1 sm-title1 md:mb-2 opacity-[.55] text-secColor'>Berakhir Dalam</p>
+              <p className='lg:lg-header1 md:md-header1 sm-header1 text-secColor'>01 : 44 : 07</p>
             </div>
-            <button className="btn w-fit gap-x-8 pb-[85px] pt-[60px] px-[70px] rounded-[40px] bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='md-title1 font-semibold text-white capitalize'>Lihat Semua</p><img src={LongArrowRight} width='52' /></button>
+            <div className='col-span-3 md:pb-12 md:static absolute right-4'>
+              <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-4 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Lihat Semua</p><img src={LongArrowRight} className='lg:w-14 md:w-8 w-6' /></button>
+            </div>
           </div>
-          <div className='col-span-3'>
-            <div className='flex gap-x-6'>
+          <div className='md:col-span-3 overflow-x-scroll py-12 scrollbar'>
+            <div className='flex md:flex-none gap-x-6'>
               {x.map((val, idx) => (
                 <Card key={idx} />
               )
@@ -203,8 +212,9 @@ function App() {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
 
+      {/* recommended products */}
       <section className='md:mt-20 mt-10'>
         <div className='container mt-40 bg-red-9900 mx-auto'>
           <div className='mx-4 md:mx-0'>
@@ -218,6 +228,89 @@ function App() {
           </div>
         </div>
       </section>
+      {/* end of recommended products */}
+
+      {/* footer */}
+      <section className='mt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
+        <div className='container mx-auto'>
+          <div className='grid md:grid-cols-2 md:gap-x-24 md:gap-y-0 gap-y-12 bg-[#1d1441] md:rounded-[40px] rounded-[25px] md:p-[80px] p-12'>
+            <div className=''>
+              <span className='bg-clip-text text-transparent bg-gradient lg:lg-header1 md:md-header1 sm-header1'>Himasi Store</span>
+              <p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] text-justify md:mt-6 mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis mrhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.</p>
+            </div>
+            <OnAtLeastNotebook>
+              <div className='md:grid md:grid-cols-3'>
+                <span className='md:justify-self-end'>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <ul>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                  </ul>
+                </span>
+                <span className='md:justify-self-end '>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <ul>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                  </ul>
+                </span>
+                <span className='md:justify-self-end '>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <ul>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                  </ul>
+                </span>
+              </div>
+            </OnAtLeastNotebook>
+            <OnMobile>
+              <div className='grid gap-y-3'>
+                <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
+                  <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
+                    Title
+                  </div>
+                  <div className="collapse-content">
+                    <ul>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                    </ul>
+                  </div>
+                </div>
+                <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
+                  <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
+                    Title
+                  </div>
+                  <div className="collapse-content">
+                    <ul>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                    </ul>
+                  </div>
+                </div>
+                <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
+                  <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
+                    Title
+                  </div>
+                  <div className="collapse-content">
+                    <ul>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </OnMobile>
+          </div>
+        </div>
+      </section >
+      {/* end of footer */}
+
     </>
   )
 }
