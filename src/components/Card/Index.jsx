@@ -14,7 +14,7 @@ function Card() {
                         </div>
                     </figure>
                     <div className="mt-6 grid gap-y-2">
-                        <p className="md:md-paragraph1 sm-paragraph1 text-secColor">Blackmores Multivitamins + Minerals</p>
+                        <p className="md:md-paragraph1 sm-paragraph1 text-secColor">Blackmores Multivitamins + Cold Minerals 250gr</p>
                         <span className='whitespace-nowrap'>
                             <p className="md:md-subTitle1 sm-subTitle1 text-secColor">Rp17.000</p>
                             <span className='flex gap-x-2'>

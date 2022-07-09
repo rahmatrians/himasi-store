@@ -6,7 +6,9 @@ import Card from './components/Card/Index'
 import Image from './assets/iconly/Image.svg'
 import Notification from './assets/iconly/Notification.svg'
 import Trolly from './assets/iconly/Trolly.svg'
+import Search from './assets/iconly/Search.svg'
 import LongArrowRight from './assets/own-icons/Long-Arrow-Right.svg'
+import List from './assets/own-icons/List.svg'
 
 const OnMobile = ({ children }) => {
   const mobile = useMediaQuery({ maxWidth: 640 })
@@ -18,7 +20,7 @@ const OnTablet = ({ children }) => {
 }
 
 const OnNotebook = ({ children }) => {
-  const notebook = useMediaQuery({ minWidth: 641, maxWidth: 768 })
+  const notebook = useMediaQuery({ minWidth: 641, maxWidth: 1024 })
   return notebook ? children : null
 }
 
@@ -59,28 +61,31 @@ function App() {
           <div className='navbar'>
             <div className="navbar-start">
               <div className="dropdown">
-                <label tabIndex="0" className="btn btn-ghost lg:hidden">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                <label tabIndex="0" className="lg:hidden">
+                  <label for="my-modal-2" class="btn btn-ghost btn-circle">
+                    <img src={Search} width='24' />
+                  </label>
                 </label>
-                <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                  <li><a>Item 1</a></li>
-                  <li tabIndex="0">
-                    <a className="justify-between">
-                      Parent
-                      <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
-                    </a>
-                    <ul className="p-2" >
-                      <li><a>Submenu 1</a></li>
-                      <li><a>Submenu 2</a></li>
-                    </ul >
-                  </li >
-                  <li><a>Item 3</a></li>
-                </ul >
+
+                {/* modal of searching for mobile respnsive */}
+                <input type="checkbox" id="my-modal-2" class="modal-toggle" />
+                <div class="modal">
+                  <label for="my-modal-2" className='w-full h-screen absolute bg-black opacity-60'></label>
+                  <div class="modal-box relative">
+                    {/* <label for="my-modal-2" class="col-span-6 btn btn-sm btn-circle absolute right-2 top-2">✕</label> */}
+                    <div class="grid grid-cols-6 gap-x-2">
+                      <input type="text" placeholder="Mau cari apa hari ini?" className="col-span-5 input rounded-full text-center input-bordered w-full" />
+                      <a href="#" class="btn btn-circle "><img src={Search} width='24' /></a>
+                    </div>
+                  </div>
+                </div>
+                {/* end of modal of searching for mobile respnsive  */}
+
               </div >
               <a className="btn btn-ghost normal-case text-xl" > HIMASI STORE</a >
             </div >
             <div className="navbar-center hidden lg:flex" >
-              <input type="text" placeholder="Mau cari apa hari ini?" className="input rounded-full text-center input-bordered w-[50rem]" />
+              <input type="text" placeholder="Mau cari apa hari ini?" className="input rounded-full text-center input-bordered w-[40rem]" />
               {/* <ul className="menu menu-horizontal p-0" >
                 <li><a>Item 1</a></li>
                 <li tabIndex="0">
@@ -149,51 +154,25 @@ function App() {
             {/* end of banner */}
 
             {/* category shortcut */}
-            <OnDesktop>
-              <div className="mt-12 py-14 px-16 flex justify-center h-[85px] rounded-[40px] whitespace-nowrap md:gap-x-10 items-center shadow-xl shadow-blue-50">
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Semua Kategori</p></a>
-                <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Software</p></a>
-                <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Gadget</p></a>
-                <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Pakaian</p></a>
-                <a><p className='text-secColor'>|</p></a>
-                <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-6 place-content-center'><img src={Image} /><p className='md:lg-title1 title1 text-secColor'>Alat Tulis</p></a>
+            {/* <OnDesktop> */}
+            <div className="mt-12 py-4 px-8 grid md:grid-cols-4 grid-cols-2 h-fit rounded-[20px] whitespace-nowrap md:gap-2 items-center justify-center flex shadow-xl shadow-blue-50">
+              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='lg:lg-title1 md:md-title1 title1 text-secColor'>Software</p></a>
+              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='lg:lg-title1 md:md-title1 title1 text-secColor'>Gadget</p></a>
+              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='lg:lg-title1 md:md-title1 title1 text-secColor'>Pakaian</p></a>
+              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='lg:lg-title1 md:md-title1 title1 text-secColor'>Alat Tulis</p></a>
+              <a href='' className='md:col-span-4 col-span-2 flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='lg:lg-title1 md:md-title1 title1 text-secColor'>Semua Kategori</p></a>
+              <div className='w-full'>
               </div>
-            </OnDesktop>
-            <>
-              <OnNotebook>
-                <div className="mt-12 py-14 px-16 flex justify-center h-[85px] rounded-[40px] whitespace-nowrap md:gap-x-10 items-center shadow-xl shadow-blue-50">
-                  <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Semua Kategori</p></a>
-                  <a><p className='text-secColor'>|</p></a>
-                  <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Software</p></a>
-                  <a><p className='text-secColor'>|</p></a>
-                  <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Gadget</p></a>
-                  <a><p className='text-secColor'>|</p></a>
-                  <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Pakaian</p></a>
-                  <a><p className='text-secColor'>|</p></a>
-                  <a href='' className='flex gap-x-4 hover:bg-hover hover:mb-2 py-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Alat Tulis</p></a>
-                </div>
-              </OnNotebook>
-            </>
-            <OnMobile>
-              <div className="mt-12 py-4 px-8 grid grid-cols-2 h-fit rounded-[20px] whitespace-nowrap md:gap-x-10 shadow-xl shadow-blue-50">
-                <a href='' className='col-span-2 flex gap-x-2 hover:bg-hover py-2 m-1 px-3 place-content-center'><img src={Image} /><p className='title1 text-secColor'>Semua Kategori</p></a>
-                <a href='' className='flex gap-x-2 hover:bg-hover py-2 m-1 px-3'><img src={Image} /><p className='title1 text-secColor'>Software</p></a>
-                <a href='' className='flex gap-x-2 hover:bg-hover py-2 m-1 px-3'><img src={Image} /><p className='title1 text-secColor'>Gadget</p></a>
-                <a href='' className='flex gap-x-2 hover:bg-hover py-2 m-1 px-3'><img src={Image} /><p className='title1 text-secColor'>Pakaian</p></a>
-                <a href='' className='flex gap-x-2 hover:bg-hover py-2 m-1 px-3'><img src={Image} /><p className='title1 text-secColor'>Alat Tulis</p></a>
-              </div>
-            </OnMobile>
+            </div>
+            {/* </OnDesktop> */}
             {/* end of category shortcut */}
           </div>
         </div>
       </section>
 
       <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
-        <div className='container grid md:grid-cols-5 md:py-[180px] py-4 md:pt-0 pt-12 mx-auto'>
-          <div className='md:col-span-2 mx-4 md:mx-0 grid grid-cols-6 md:grid-cols-none content-between'>
+        <div className='container grid md:grid-cols-6 md:py-[180px] py-4 pt-12 mx-auto'>
+          <div className='md:col-span-3 mx-4 grid grid-cols-6 md:grid-cols-none content-between'>
             <div className='col-span-3'>
               <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-8 animate-bounce text-secColor'>Flash Deal</p>
               <p className='lg:lg-title1 md:lg-title1 sm-title1 md:mb-2 opacity-[.55] text-secColor'>Berakhir Dalam</p>
@@ -203,7 +182,7 @@ function App() {
               <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-4 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Lihat Semua</p><img src={LongArrowRight} className='lg:w-14 md:w-8 w-6' /></button>
             </div>
           </div>
-          <div className='md:col-span-3 overflow-x-scroll py-12 scrollbar'>
+          <div className='md:col-span-3 mx-4 md:px-4 px-2 overflow-x-scroll md:pt-0 pt-12 pb-12 scrollbar'>
             <div className='flex md:flex-none gap-x-6'>
               {x.map((val, idx) => (
                 <Card key={idx} />
@@ -216,7 +195,7 @@ function App() {
 
       {/* recommended products */}
       <section className='md:mt-20 mt-10'>
-        <div className='container mt-40 bg-red-9900 mx-auto'>
+        <div className='container md:mt-40 mt-14 bg-red-9900 mx-auto'>
           <div className='mx-4 md:mx-0'>
             <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-[115px] mb-10 text-secColor'>Rekomendasi Buat Kamu</p>
             <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-x-6 gap-x-4 md:gap-y-12 gap-y-8'>
@@ -224,6 +203,11 @@ function App() {
                 <Card key={idx} />
               )
               )}
+            </div>
+            <div className='md:my-44 my-24 container mx-auto'>
+              <center>
+                <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-4 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Tampilkan lebih banyak</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+              </center>
             </div>
           </div>
         </div>
