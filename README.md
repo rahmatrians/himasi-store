@@ -11,4 +11,3 @@ bout stacks :
 how to run app:
 ```
 yarn run dev
-
