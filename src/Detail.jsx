@@ -7,6 +7,8 @@ import Image from './assets/iconly/Image.svg'
 import Notification from './assets/iconly/Notification.svg'
 import Trolly from './assets/iconly/Trolly.svg'
 import Search from './assets/iconly/Search.svg'
+import Love from './assets/own-icons/Love.svg'
+import Star from './assets/own-icons/Star.svg'
 import LongArrowRight from './assets/own-icons/Long-Arrow-Right.svg'
 import List from './assets/own-icons/List.svg'
 
@@ -35,7 +37,7 @@ const OnDesktop = ({ children }) => {
 }
 
 
-function App() {
+function Detail() {
   const [count, setCount] = useState(0);
   let x = [5, 5, 5, 5];
   let y = [2, 2, 2, 2, 2, 2, 2, 2, 2];
@@ -70,7 +72,7 @@ function App() {
                 {/* end of modal of searching for mobile respnsive  */}
 
               </div >
-              <a className="btn btn-ghost normal-case text-xl" > HIMASI STORE</a >
+              <a className="btn btn-ghost normal-case text-xl" > HIMASIX STORE</a >
             </div >
             <div className="navbar-center hidden lg:flex" >
               <input type="text" placeholder="Mau cari apa hari ini?" className="input rounded-full text-center input-bordered w-[40rem]" />
@@ -91,55 +93,78 @@ function App() {
       </nav >
       {/* end of navigation */}
 
-      <section className='md:mt-20 mt-10'>
-        <div className='container mx-auto'>
-          <div className='mx-4 md:mx-0'>
-            {/* banner */}
-            <div className="carousel md:rounded-[40px] rounded-lg md:h-96 h-40">
-              <div id="slide1" className="carousel-item relative w-full md:overflow-hidden">
-                <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a href="#slide4" className="btn bg-white btn-circle text-gray-900">❮</a>
-                  <a href="#slide2" className="btn bg-white btn-circle text-gray-900">❯</a>
+      <section className='md:mt-20 mt-10 md:mx-14'>
+        <div className='container mx-auto grid grid-cols-12 gap-x-6'>
+          <div className='col-span-3 bg-red-100'>
+            <div className="card rounded-[30px] shadow-none">
+              <img src="https://placeimg.com/400/400/arch" alt="Shoes" className="rounded-2xl" />
+              <div className="absolute md:right-6 md:top-6 right-7 top-7">
+                <span className='bg-white rounded-full shadow-md grid place-content-center w-7 md:w-12 h-7 md:h-12'><img src={Love} className='w-4 md:w-6' /></span>
+              </div>
+            </div>
+            <hr className='my-6'></hr>
+            <div className='grid grid-cols-5 lg:gap-x-4 md:gap-x-2 items-center'>
+              <a href='' className='rounded-full w-fit h-fit overflow-hidden'>
+                <img src="https://placeimg.com/50/50/arch" alt="Shoes" />
+              </a>
+              <div className='col-span-4'>
+                <a href='' className='md:md-paragraph3 sm-paragraph3 text-secColor'>Press Play</a>
+                <p className='md:md-label1 sm-label1 opacity-[.55] text-secColor'>Kota Jakarta Utara</p>
+              </div>
+            </div>
+          </div>
+          <div className='col-span-6 bg-gray-200'>
+            <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-3 text-secColor'>Gundam Unicorn Japanese PBT DYe Sub Keycaps Keycap Set</p>
+            <span className='flex md:gap-x-2 gap-x-1 mr-4 items-center'>
+              <img src={Star} className='w-3 lg:w-4' />
+              <p className="lg:lg-label1 md:md-label1 sm-label1 !font-bold text-secColor">4.8</p>
+              <p className="lg:lg-label1 md:md-label1 sm-label1 opacity-[.55] text-secColor">(264 Ulasan)</p>
+              <p className="sm-label1 text-secColor opacity-[.55]">|</p>
+              <p className="lg:lg-label1 md:md-label1 sm-label1 !font-bold text-secColor">275</p>
+              <p className="lg:lg-label1 md:md-label1 sm-label1 text-secColor opacity-[.55]"> Kali Terjual</p>
+            </span>
+            <div className='my-4'>
+              <span className='bg-clip-text text-transparent bg-gradient lg:lg-header1 md:md-header1 sm-header1 !font-extrabold'>Rp369.000</span>
+              <span className='flex gap-x-2'>
+                <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
+                <p className="px-2 py-1 rounded-md bg-[#FFDBE2] lg-label2 text-[#F94D6B]">50%</p>
+              </span>
+            </div>
+            <div className='my-8'>
+              <p className='md:md-paragraph1 sm-paragraph1 md:mb-2 !font-bold text-secColor'>Deskripsi</p>
+              <div className='h-[200px] overflow-auto'>
+                <p className='md:md-paragraph3 sm-paragraph3 md:mb-2 !font-medium text-justify opacity-[.55] text-secColor'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen booking and typesetting industry.
+                  <br /><br />
+                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like...</p>
+              </div>
+              <a href=''><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>Tampilkan semua</span></a>
+            </div>
+          </div>
+          <div className='col-span-3 bg-red-0'>
+            <div className="card p-4 pb-6 rounded-[30px] bg-base-100 shadow-xl shadow-blue-100">
+              <div className="mt-6">
+                <p className='md:md-paragraph3 sm-paragraph3 text-secColor'>Atur Jumlah</p>
+                <div className='grid grid-cols-5 mt-4 justify-items-center'>
+                  <div className='col-span-1 justify-self-start'>
+                    <button className='btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>-</p></button>
+                  </div>
+                  <div className='col-span-3'>
+                    <input type="text" value="1" className="border-2 border-[#D9E8FF] input rounded-full w-full text-center input-bordered" />
+                    <p className='text-center mt-1 text-xs opacity-[.55] font-medium text-[#385768]'>Stok tersisa 52</p>
+                  </div>
+                  <div className='col-span-1 justify-self-end'>
+                    <button className='btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>+</p></button>
+                  </div>
                 </div>
               </div>
-              <div id="slide2" className="carousel-item relative w-full md:overflow-hidden">
-                <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a href="#slide1" className="btn bg-white btn-circle text-gray-900">❮</a>
-                  <a href="#slide3" className="btn bg-white btn-circle text-gray-900">❯</a>
-                </div>
-              </div>
-              <div id="slide3" className="carousel-item relative w-full md:overflow-hidden">
-                <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a href="#slide2" className="btn bg-white btn-circle text-gray-900">❮</a>
-                  <a href="#slide4" className="btn bg-white btn-circle text-gray-900">❯</a>
-                </div>
-              </div>
-              <div id="slide4" className="carousel-item relative w-full md:overflow-hidden">
-                <img src="https://placeimg.com/800/400/arch" className="w-screen md:h-fit" />
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                  <a href="#slide3" className="btn bg-white btn-circle text-gray-900">❮</a>
-                  <a href="#slide1" className="btn bg-white btn-circle text-gray-900">❯</a>
+              <div className="mt-6">
+                <p className='md:md-paragraph3 sm-paragraph3text-secColor'>Subtotal</p>
+                <div className='mt-2'>
+                  <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
+                  <p className="md:md-subTitle1 sm-subTitle1 text-secColor">Rp17.000</p>
                 </div>
               </div>
             </div>
-            {/* end of banner */}
-
-            {/* category shortcut */}
-            {/* <OnDesktop> */}
-            <div className="mt-12 py-4 px-8 grid md:grid-cols-4 grid-cols-2 h-fit rounded-[20px] whitespace-nowrap md:gap-2 items-center justify-center flex shadow-xl shadow-blue-50">
-              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='md:md-title1 title1 text-secColor'>Software</p></a>
-              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='md:md-title1 title1 text-secColor'>Gadget</p></a>
-              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='md:md-title1 title1 text-secColor'>Pakaian</p></a>
-              <a href='' className='flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='md:md-title1 title1 text-secColor'>Alat Tulis</p></a>
-              <a href='' className='md:col-span-4 col-span-2 flex md:gap-x-3 gap-x-2 hover:bg-hover py-2 m-1 border border-1 border-[#b1d1e3] rounded-[10px] place-content-center'><img src={Image} className='lg:w-8 md:w-6 w-4' /><p className='md:md-title1 title1 text-secColor'>Semua Kategori</p></a>
-              <div className='w-full'>
-              </div>
-            </div>
-            {/* </OnDesktop> */}
-            {/* end of category shortcut */}
           </div>
         </div>
       </section>
@@ -273,4 +298,4 @@ function App() {
   )
 }
 
-export default App
+export default Detail

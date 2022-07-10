@@ -40,7 +40,7 @@ code {
   }
 
   .lg-header1 {
-    @apply font-Inter font-bold text-[45px];
+    @apply font-Inter font-bold text-[28px];
   }
 
   .md-header1 {
@@ -62,10 +62,17 @@ code {
   .md-paragraph2 {
     @apply font-Inter font-light text-[18px];
   }
-
   
   .sm-paragraph2 {
     @apply font-Inter font-light text-[14px];
+  }
+
+  .md-paragraph3 {
+    @apply font-Inter font-bold text-[16px];
+  }
+
+  .sm-paragraph3 {
+    @apply font-Inter font-bold text-[12px];
   }
 
   .md-subTitle1 {
