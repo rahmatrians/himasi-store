@@ -95,7 +95,7 @@ function Detail() {
 
       <section className='md:mt-20 mt-10 md:mx-14'>
         <div className='container mx-auto grid grid-cols-12 gap-x-6'>
-          <div className='col-span-3 bg-red-100'>
+          <div className='col-span-3'>
             <div className="card rounded-[30px] shadow-none">
               <img src="https://placeimg.com/400/400/arch" alt="Shoes" className="rounded-2xl" />
               <div className="absolute md:right-6 md:top-6 right-7 top-7">
@@ -113,7 +113,7 @@ function Detail() {
               </div>
             </div>
           </div>
-          <div className='col-span-6 bg-gray-200'>
+          <div className='col-span-6'>
             <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-3 text-secColor'>Gundam Unicorn Japanese PBT DYe Sub Keycaps Keycap Set</p>
             <span className='flex md:gap-x-2 gap-x-1 mr-4 items-center'>
               <img src={Star} className='w-3 lg:w-4' />
@@ -140,28 +140,41 @@ function Detail() {
               <a href=''><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>Tampilkan semua</span></a>
             </div>
           </div>
-          <div className='col-span-3 bg-red-0'>
-            <div className="card p-4 pb-6 rounded-[30px] bg-base-100 shadow-xl shadow-blue-100">
-              <div className="mt-6">
+          <div className='col-span-3 relative'>
+            <div className="card fixed w-[290px] z-[99] p-4 rounded-[30px] bg-base-100 shadow-xl shadow-blue-100">
+              <div className="">
                 <p className='md:md-paragraph3 sm-paragraph3 text-secColor'>Atur Jumlah</p>
-                <div className='grid grid-cols-5 mt-4 justify-items-center'>
-                  <div className='col-span-1 justify-self-start'>
-                    <button className='btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>-</p></button>
-                  </div>
-                  <div className='col-span-3'>
-                    <input type="text" value="1" className="border-2 border-[#D9E8FF] input rounded-full w-full text-center input-bordered" />
+                <div className='grid grid-cols-12 gap-x-2 mt-4 justify-items-center'>
+                  <div className='col-span-3 w-full btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>-</p></div>
+                  <div className='col-span-6'>
+                    <input type="number" value="1" className="border-2 border-[#D9E8FF] input rounded-full w-full text-center input-bordered" />
                     <p className='text-center mt-1 text-xs opacity-[.55] font-medium text-[#385768]'>Stok tersisa 52</p>
                   </div>
-                  <div className='col-span-1 justify-self-end'>
-                    <button className='btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>+</p></button>
-                  </div>
+                  <div className='col-span-3 w-full btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>+</p></div>
                 </div>
               </div>
               <div className="mt-6">
                 <p className='md:md-paragraph3 sm-paragraph3text-secColor'>Subtotal</p>
                 <div className='mt-2'>
                   <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
-                  <p className="md:md-subTitle1 sm-subTitle1 text-secColor">Rp17.000</p>
+                  <span className='bg-clip-text flex text-transparent bg-gradient'><p className="md:md-subTitle1 sm-subTitle1">Rp17.000</p></span>
+                </div>
+                <div className='grid gap-y-2 mt-6 md:static absolute right-4'>
+                  <button className="btn w-full lg:gap-x-4 md:gap-x-4 gap-x-4 lg:pb-[55px] md:pb-[35px] lg:pt-[30px] md:pt-[20px] lg:rounded-[30px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none lg:from-[#FF3A75] lg:to-[#FF6E5A]"><p className='lg:text-[16px] text-[12px] font-semibold text-white capitalize'>Beli Sekarang</p><img src={Image} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /></button>
+
+                  <button className="btn w-full h-fit lg:rounded-[30px] md:rounded-[20px] hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-white border-[#FF3A75]">
+                    <span className='bg-clip-text flex lg:gap-x-4 md:gap-x-4 gap-x-4 items-center text-transparent bg-gradient lg:text-[16px] text-[12px] font-semibold capitalize'><p>Taruh ke Troli</p><img src={Image} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /> </span>
+                  </button>
+                  <div className='grid grid-cols-2 gap-x-1'>
+                    <a href='' className='p-2 border-2 rounded-[10px] hover:bg-hover hover:border-none place-content-center mt-4 flex md:gap-x-2 gap-x-1 items-center'>
+                      <img src={Image} className='w-3 lg:w-4' />
+                      <p className="lg:lg-label2 md:md-label2 sm-label2 !font-bold text-secColor">Chat Penjual</p>
+                    </a>
+                    <a href='' className='p-2 border-2 rounded-[10px] hover:bg-hover hover:border-none place-content-center mt-4 flex md:gap-x-2 gap-x-1 items-center'>
+                      <img src={Image} className='w-3 lg:w-4' />
+                      <p className="lg:lg-label2 md:md-label2 sm-label2 !font-bold text-secColor">Bagikan</p>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
