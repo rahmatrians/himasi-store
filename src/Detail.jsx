@@ -93,9 +93,9 @@ function Detail() {
       </nav >
       {/* end of navigation */}
 
-      <section className='md:mt-20 mt-10 md:mx-14'>
+      <section className='md:mt-20 mt-10 md:mx-14 mx-4'>
         <div className='container mx-auto grid grid-cols-12 gap-x-6'>
-          <div className='col-span-3'>
+          <div className='lg:col-span-3 md:col-span-4 col-span-12'>
             <div className="card rounded-[30px] shadow-none">
               <img src="https://placeimg.com/400/400/arch" alt="Shoes" className="rounded-2xl" />
               <div className="absolute md:right-6 md:top-6 right-7 top-7">
@@ -103,7 +103,7 @@ function Detail() {
               </div>
             </div>
             <hr className='my-6'></hr>
-            <div className='grid grid-cols-5 lg:gap-x-4 md:gap-x-2 items-center'>
+            <div className='grid grid-cols-5 lg:gap-x-4 md:gap-x-2 items-center hidden md:flex'>
               <a href='' className='rounded-full w-fit h-fit overflow-hidden'>
                 <img src="https://placeimg.com/50/50/arch" alt="Shoes" />
               </a>
@@ -113,7 +113,7 @@ function Detail() {
               </div>
             </div>
           </div>
-          <div className='col-span-6'>
+          <div className='lg:col-span-6 md:col-span-8 col-span-12'>
             <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-3 text-secColor'>Gundam Unicorn Japanese PBT DYe Sub Keycaps Keycap Set</p>
             <span className='flex md:gap-x-2 gap-x-1 mr-4 items-center'>
               <img src={Star} className='w-3 lg:w-4' />
@@ -140,7 +140,7 @@ function Detail() {
               <a href=''><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>Tampilkan semua</span></a>
             </div>
           </div>
-          <div className='col-span-3 relative'>
+          <div className='lg:col-span-3 relative hidden lg:flex'>
             <div className="card fixed w-[290px] z-[99] p-4 rounded-[30px] bg-base-100 shadow-xl shadow-blue-100">
               <div className="">
                 <p className='md:md-paragraph3 sm-paragraph3 text-secColor'>Atur Jumlah</p>
@@ -183,24 +183,16 @@ function Detail() {
       </section>
 
       <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
-        <div className='container grid md:grid-cols-6 md:py-[180px] py-4 pt-12 mx-auto'>
-          <div className='md:col-span-3 mx-4 grid grid-cols-6 md:grid-cols-none content-between'>
-            <div className='col-span-3'>
-              <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-8 animate-bounce text-secColor'>Flash Deal</p>
+        <div className='container grid md:grid-cols-12 md:py-[180px] py-4 pt-12 mx-auto'>
+          <div className='md:col-span-3 mx-4 grid grid-cols-12 bg-yellow-200 md:grid-cols-none'>
+            <div className='col-span-12'>
+              <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-8 text-secColor'>Ulasan</p>
               <p className='md:md-title1 sm-title1 md:mb-2 opacity-[.55] text-secColor'>Berakhir Dalam</p>
               <p className='lg:lg-header1 md:md-header1 sm-header1 text-secColor'>01 : 44 : 07</p>
             </div>
-            <div className='col-span-3 md:pb-12 md:static absolute right-4'>
-              <button className="btn w-fit lg:gap-x-6 md:gap-x-6 gap-x-4 lg:pb-[70px] md:pb-[45px] lg:pt-[42px] md:pt-[30px] lg:px-[60px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='md:md-title1 sm-title1 font-semibold text-white capitalize'>Lihat Semua</p><img src={LongArrowRight} className='lg:w-12 md:w-8 w-6' /></button>
-            </div>
           </div>
           <div className='md:col-span-3 mx-4 md:px-4 px-2 overflow-x-scroll md:pt-0 pt-12 pb-12 scrollbar'>
-            <div className='flex md:flex-none gap-x-6'>
-              {x.map((val, idx) => (
-                <Card key={idx} />
-              )
-              )}
-            </div>
+
           </div>
         </div>
       </section>
