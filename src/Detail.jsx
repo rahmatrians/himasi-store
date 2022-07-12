@@ -179,47 +179,152 @@ function Detail() {
               </div>
             </div>
           </div>
+          <div className='z-50 fixed bottom-0 right-0 left-0 h-fit py-3 px-4 bg-white lg:hidden flex'>
+            <div className='container flex gap-x-2 mx-auto place-content-center'>
+              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[30px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 md:flex hidden font-semibold text-secColor capitalize'>Chat</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[30px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-secColor capitalize'><span className='md:hidden flex'>Masuk Troli</span><span className='md:flex hidden'>Taruh ke Troli</span></p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+              <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-3 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Beli Sekarang</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className='md:mt-20 mt-10 bg-[#f5f5f5]'>
-        <div className='container grid md:grid-cols-12 md:py-[180px] py-4 pt-12 mx-auto'>
-          <div className='md:col-span-3 mx-4 grid grid-cols-12 bg-yellow-200 md:grid-cols-none'>
+        <div className='container grid md:grid-cols-12 md:py-[100px] py-4 pt-12 md:px-0 px-4 mx-auto'>
+          <div className='lg:col-span-9 col-span-12 md:grid-cols-none'>
             <div className='col-span-12'>
               <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-8 text-secColor'>Ulasan</p>
-              <p className='md:md-title1 sm-title1 md:mb-2 opacity-[.55] text-secColor'>Berakhir Dalam</p>
-              <p className='lg:lg-header1 md:md-header1 sm-header1 text-secColor'>01 : 44 : 07</p>
+              <div className='flex mt-3 md:mt-0'>
+                <span className='flex w-fit md:gap-x-2 gap-x-1 mr-4 items-center border-2 border-[#d9e8ff] rounded-[20px] md:px-8 px-6 md:py-6 py-4'>
+                  <img src={Star} className='w-5 lg:w-8 mr-1' />
+                  <p className="lg:lg-header1 md:md-header1 sm-header1 !font-bold text-secColor">4.8</p>
+                  <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 opacity-[.55] text-secColor">/5.0</p>
+                </span>
+                {/* <span className='flex gap-x-4'>
+                  <a href='' className='md:rounded-[20px] w-fit h-fit overflow-hidden'>
+                    <img src="https://placeimg.com/100/100/arch" alt="Shoes" />
+                  </a>
+                  <a href='' className='md:rounded-[20px] w-fit h-fit overflow-hidden'>
+                    <img src="https://placeimg.com/100/100/arch" alt="Shoes" />
+                  </a>
+                  <a href='' className='md:rounded-[20px] w-fit h-fit overflow-hidden'>
+                    <img src="https://placeimg.com/100/100/arch" alt="Shoes" />
+                  </a>
+                  <a href='' className='md:rounded-[20px] w-fit h-fit overflow-hidden'>
+                    <img src="https://placeimg.com/100/100/arch" alt="Shoes" />
+                  </a>
+                </span> */}
+              </div>
+              <div className='mt-12 grid gap-y-4'>
+                <div className='grid grid-cols-12 border-2 p-8 rounded-[20px]'>
+                  <div className='grid grid-cols-5 md:col-span-3 col-span-12 gap-x-4 items-center flex'>
+                    <a href='' className='rounded-full w-fit h-fit overflow-hidden'>
+                      <img src="https://placeimg.com/50/50/arch" alt="Shoes" />
+                    </a>
+                    <div className='col-span-4'>
+                      <a href='' className='md:md-paragraph3 sm-paragraph3 text-secColor'>Rahmat Rians</a>
+                      <p className='md:md-label1 sm-label1 opacity-[.55] text-secColor'>2 hari lalu</p>
+                    </div>
+                  </div>
+                  <div className='md:col-span-9 col-span-12 lg:gap-x-4 md:gap-x-2'>
+                    <span className='w-fit gap-x-1 flex md:my-4 mt-6 mb-2'>
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                    </span>
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 opacity-[.55] text-secColor">sipp mantap barang diterima dngn baik utuh ga cacat.. sempat panik kok ga nyala ternyata colok chargernya kurang dalam.. maklum karna masih baru terlalu halus colokinnya</p>
+                  </div>
+                </div>
+                <div className='grid grid-cols-12 border-2 p-8 rounded-[20px]'>
+                  <div className='grid grid-cols-5 md:col-span-3 col-span-12 gap-x-4 items-center flex'>
+                    <a href='' className='rounded-full w-fit h-fit overflow-hidden'>
+                      <img src="https://placeimg.com/50/50/arch" alt="Shoes" />
+                    </a>
+                    <div className='col-span-4'>
+                      <a href='' className='md:md-paragraph3 sm-paragraph3 text-secColor'>Rahmat Rians</a>
+                      <p className='md:md-label1 sm-label1 opacity-[.55] text-secColor'>2 hari lalu</p>
+                    </div>
+                  </div>
+                  <div className='md:col-span-9 col-span-12 lg:gap-x-4 md:gap-x-2'>
+                    <span className='w-fit gap-x-1 flex md:my-4 mt-6 mb-2'>
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                    </span>
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 opacity-[.55] text-secColor">sipp mantap barang diterima dngn baik utuh ga cacat.. sempat panik kok ga nyala ternyata colok chargernya kurang dalam.. maklum karna masih baru terlalu halus colokinnya</p>
+                  </div>
+                </div>
+                <div className='grid grid-cols-12 border-2 p-8 rounded-[20px]'>
+                  <div className='grid grid-cols-5 md:col-span-3 col-span-12 gap-x-4 items-center flex'>
+                    <a href='' className='rounded-full w-fit h-fit overflow-hidden'>
+                      <img src="https://placeimg.com/50/50/arch" alt="Shoes" />
+                    </a>
+                    <div className='col-span-4'>
+                      <a href='' className='md:md-paragraph3 sm-paragraph3 text-secColor'>Rahmat Rians</a>
+                      <p className='md:md-label1 sm-label1 opacity-[.55] text-secColor'>2 hari lalu</p>
+                    </div>
+                  </div>
+                  <div className='md:col-span-9 col-span-12 lg:gap-x-4 md:gap-x-2'>
+                    <span className='w-fit gap-x-1 flex md:my-4 mt-6 mb-2'>
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                      <img src={Star} className='w-3 lg:w-5 mr-1' />
+                    </span>
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 opacity-[.55] text-secColor">sipp mantap barang diterima dngn baik utuh ga cacat.. sempat panik kok ga nyala ternyata colok chargernya kurang dalam.. maklum karna masih baru terlalu halus colokinnya</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className='md:col-span-3 mx-4 md:px-4 px-2 overflow-x-scroll md:pt-0 pt-12 pb-12 scrollbar'>
-
-          </div>
-        </div>
-      </section>
-
-      {/* recommended products */}
-      <section className='md:mt-20 mt-10'>
-        <div className='container md:mt-40 mt-14 bg-red-9900 mx-auto'>
-          <div className='mx-4 md:mx-0'>
-            <p className='lg:lg-header1 md:md-header1 sm-header1 md:mb-[115px] mb-10 text-secColor'>Rekomendasi Buat Kamu</p>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 md:gap-x-6 gap-x-4 md:gap-y-12 gap-y-8'>
-              {y.map((val, idx) => (
-                <Card key={idx} />
-              )
-              )}
-            </div>
-            <div className='md:my-44 my-24 container mx-auto'>
+            {/* <div className='my-16 mx-6'>
+              <p className='md:md-paragraph1 sm-paragraph1 md:mb-2 !font-bold text-secColor'>Filter</p>
+              <div className='w-[60%] md:w-fit'>
+                <div className='flex overflow-x-scroll whitespace-nowrap gap-x-3'>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-6 md:py-3 py-1'>
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">Semua</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-6 md:py-3 py-1'>
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">Dengan Media</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-6 md:py-3 py-1'>
+                    <img src={Star} className='w-3 lg:w-5' />
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">5</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-6 md:py-3 py-1'>
+                    <img src={Star} className='w-3 lg:w-5' />
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">4</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-3 md:py-3 py-1'>
+                    <img src={Star} className='w-3 lg:w-5' />
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">3</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-3 md:py-3 py-1'>
+                    <img src={Star} className='w-3 lg:w-5' />
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">2</p>
+                  </span>
+                  <span className='flex w-fit md:gap-x-2 gap-x-1 mx-3 items-center hover:bg-hover hover:rounded-full border-2 border-[#d9e8ff] rounded-full md:px-8 px-3 md:py-3 py-1'>
+                    <img src={Star} className='w-3 lg:w-5' />
+                    <p className="lg:lg-paragraph1 md:md-paragraph1 sm-paragraph1 !font-bold text-secColor">1</p>
+                  </span>
+                </div>
+              </div>
+            </div> */}
+            <div className='my-12 container md:hidden mx-auto'>
               <center>
-                <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-4 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Tampilkan lebih banyak</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+                <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-4 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Lihat Semua Ulasan</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
               </center>
             </div>
           </div>
         </div>
       </section>
-      {/* end of recommended products */}
 
       {/* footer */}
-      <section className='mt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
+      <section className='pt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
         <div className='container mx-auto'>
           <div className='grid md:grid-cols-2 md:gap-x-24 md:gap-y-0 gap-y-12 bg-[#1d1441] md:rounded-[40px] rounded-[25px] md:p-[80px] p-12'>
             <div className=''>
