@@ -1,15 +1,21 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
-import Card from './components/Card/Index'
+import Header from './components/Header/Index'
 
+import Product from './assets/images/Product.jpg'
 import Image from './assets/iconly/Image.svg'
 import Notification from './assets/iconly/Notification.svg'
 import Trolly from './assets/iconly/Trolly.svg'
+import Wallet from './assets/iconly/Wallet.svg'
+import TrollySec from './assets/own-icons/TrollySec.svg'
+import Chat from './assets/iconly/Chat.svg'
+import Send from './assets/iconly/Send.svg'
+import ChatSec from './assets/own-icons/Chat.svg'
 import Search from './assets/iconly/Search.svg'
 import Love from './assets/own-icons/Love.svg'
+import LoveUnchecked from './assets/own-icons/LoveUnchecked.svg'
 import Star from './assets/own-icons/Star.svg'
-import LongArrowRight from './assets/own-icons/Long-Arrow-Right.svg'
 import List from './assets/own-icons/List.svg'
 
 const OnMobile = ({ children }) => {
@@ -38,68 +44,35 @@ const OnDesktop = ({ children }) => {
 
 
 function Detail() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
+  const [check, setCheck] = useState(0);
+  const [showDesc, setShowDesc] = useState(0);
+
   let x = [5, 5, 5, 5];
   let y = [2, 2, 2, 2, 2, 2, 2, 2, 2];
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
+  const CalcPrice = val => {
+    setCount(val);
+  }
 
 
   return (
     <>
       {/* navigation */}
-      <nav className="relative z-50 fixed top-0 left-0 right-0 h-[85px] flex items-center bg-base-100 shadow-xl shadow-blue-50">
-        <div className='container mx-auto'>
-          <div className='navbar'>
-            <div className="navbar-start">
-              <div className="dropdown">
-                <label tabIndex="0" className="lg:hidden">
-                  <label for="my-modal-2" class="btn btn-ghost btn-circle">
-                    <img src={Search} width='24' />
-                  </label>
-                </label>
-
-                {/* modal of searching for mobile respnsive */}
-                <input type="checkbox" id="my-modal-2" class="modal-toggle" />
-                <div class="modal">
-                  <label for="my-modal-2" className='w-full h-screen absolute bg-black opacity-60'></label>
-                  <div class="modal-box relative">
-                    {/* <label for="my-modal-2" class="col-span-6 btn btn-sm btn-circle absolute right-2 top-2">✕</label> */}
-                    <div class="grid grid-cols-6 gap-x-2">
-                      <input type="text" placeholder="Mau cari apa hari ini?" className="col-span-5 input rounded-full text-center input-bordered w-full" />
-                      <a href="#" class="btn btn-circle "><img src={Search} width='24' /></a>
-                    </div>
-                  </div>
-                </div>
-                {/* end of modal of searching for mobile respnsive  */}
-
-              </div >
-              <a className="btn btn-ghost normal-case text-xl" > HIMASIX STORE</a >
-            </div >
-            <div className="navbar-center hidden lg:flex" >
-              <input type="text" placeholder="Mau cari apa hari ini?" className="input rounded-full text-center input-bordered w-[40rem]" />
-            </div >
-            <div className="navbar-end" >
-              <button className="btn btn-ghost btn-circle" >
-                <img src={Trolly} width='24' />
-              </button >
-              <button className="btn btn-ghost btn-circle" >
-                <img src={Notification} width='24' />
-              </button >
-              <button className="btn btn-ghost btn-circle" >
-                <img src={Image} width='24' />
-              </button >
-            </div >
-          </div >
-        </div >
-      </nav >
+      <Header />
       {/* end of navigation */}
 
-      <section className='md:mt-20 mt-10 md:mx-14 mx-4'>
+      <section className='md:mt-[150px] mt-32 md:mx-14 mx-4'>
         <div className='container mx-auto grid grid-cols-12 gap-x-6'>
           <div className='lg:col-span-3 md:col-span-4 col-span-12'>
             <div className="card rounded-[30px] shadow-none">
-              <img src="https://placeimg.com/400/400/arch" alt="Shoes" className="rounded-2xl" />
-              <div className="absolute md:right-6 md:top-6 right-7 top-7">
-                <span className='bg-white rounded-full shadow-md grid place-content-center w-7 md:w-12 h-7 md:h-12'><img src={Love} className='w-4 md:w-6' /></span>
+              <img src={Product} alt="Shoes" className="rounded-2xl" />
+              <div className="absolute md:right-8 md:top-8 right-7 top-7">
+                <span onClick={() => setCheck(check + 1)} className='btn !p-0 hover:bg-white bg-white rounded-full shadow-md grid place-content-center w-12'><img src={check % 2 != 0 ? Love : LoveUnchecked} className='w-6' /></span>
               </div>
             </div>
             <hr className='my-6'></hr>
@@ -126,18 +99,18 @@ function Detail() {
             <div className='my-4'>
               <span className='bg-clip-text text-transparent bg-gradient lg:lg-header1 md:md-header1 sm-header1 !font-extrabold'>Rp369.000</span>
               <span className='flex gap-x-2'>
-                <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
+                <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp738.000</s></p>
                 <p className="px-2 py-1 rounded-md bg-[#FFDBE2] lg-label2 text-[#F94D6B]">50%</p>
               </span>
             </div>
             <div className='my-8'>
               <p className='md:md-paragraph1 sm-paragraph1 md:mb-2 !font-bold text-secColor'>Deskripsi</p>
-              <div className='h-[200px] overflow-auto'>
+              <div className={showDesc % 2 != 0 ? 'h-[200px] overflow-auto' : ''}>
                 <p className='md:md-paragraph3 sm-paragraph3 md:mb-2 !font-medium text-justify opacity-[.55] text-secColor'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen booking and typesetting industry.
                   <br /><br />
                   Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like...</p>
               </div>
-              <a href=''><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>Tampilkan semua</span></a>
+              <button onClick={() => setShowDesc(showDesc + 1)}><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>{showDesc % 2 != 0 ? 'Tampilkan semua' : 'Tampilkan sedikit'}</span></button>
             </div>
           </div>
           <div className='lg:col-span-3 relative hidden lg:flex'>
@@ -145,33 +118,42 @@ function Detail() {
               <div className="">
                 <p className='md:md-paragraph3 sm-paragraph3 text-secColor'>Atur Jumlah</p>
                 <div className='grid grid-cols-12 gap-x-2 mt-4 justify-items-center'>
-                  <div className='col-span-3 w-full btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>-</p></div>
+                  <button onClick={() => CalcPrice(count - 1)} className='btn col-span-3 hover:bg-[#e6edf1] hover:border-[#D9E8FF] w-full rounded-full bg-white border-2 border-[#D9E8FF]'>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect y="7.2002" width="18" height="3.6" rx="1.8" fill="#39586A" />
+                    </svg>
+                  </button>
                   <div className='col-span-6'>
-                    <input type="number" value="1" className="border-2 border-[#D9E8FF] input rounded-full w-full text-center input-bordered" />
+                    <input type="text" disabled value={count} className="border-2 !bg-white !border-[#D9E8FF] input font-semibold md-paragraph2 rounded-full w-full text-center input-bordered" />
                     <p className='text-center mt-1 text-xs opacity-[.55] font-medium text-[#385768]'>Stok tersisa 52</p>
                   </div>
-                  <div className='col-span-3 w-full btn rounded-full bg-white border-2 border-[#D9E8FF]'><p className=''>+</p></div>
+                  <button onClick={() => CalcPrice(count + 1)} className='col-span-3 hover:bg-[#e6edf1] w-full btn rounded-full bg-white border-2 border-[#D9E8FF] hover:border-[#D9E8FF]'>
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="7.2002" y="18" width="18" height="3.6" rx="1.8" transform="rotate(-90 7.2002 18)" fill="#39586A" />
+                      <rect y="7.2002" width="18" height="3.6" rx="1.8" fill="#39586A" />
+                    </svg>
+                  </button>
                 </div>
               </div>
               <div className="mt-6">
                 <p className='md:md-paragraph3 sm-paragraph3text-secColor'>Subtotal</p>
                 <div className='mt-2'>
                   <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
-                  <span className='bg-clip-text flex text-transparent bg-gradient'><p className="md:md-subTitle1 sm-subTitle1">Rp17.000</p></span>
+                  <span className='bg-clip-text flex text-transparent bg-gradient'><p className="md:md-subTitle1 sm-subTitle1">Rp{(369000 * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p></span>
                 </div>
                 <div className='grid gap-y-2 mt-6 md:static absolute right-4'>
-                  <button className="btn w-full lg:gap-x-4 md:gap-x-4 gap-x-4 lg:pb-[55px] md:pb-[35px] lg:pt-[30px] md:pt-[20px] lg:rounded-[30px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none lg:from-[#FF3A75] lg:to-[#FF6E5A]"><p className='lg:text-[16px] text-[12px] font-semibold text-white capitalize'>Beli Sekarang</p><img src={Image} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /></button>
+                  <button className="btn w-full lg:gap-x-4 md:gap-x-4 gap-x-4 lg:pb-[55px] md:pb-[35px] lg:pt-[30px] md:pt-[20px] lg:rounded-[30px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none lg:from-[#FF3A75] lg:to-[#FF6E5A]"><p className='lg:text-[16px] text-[12px] font-semibold text-white capitalize'>Beli Sekarang</p><img src={Wallet} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /></button>
 
                   <button className="btn w-full h-fit lg:rounded-[30px] md:rounded-[20px] hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-white border-[#FF3A75]">
-                    <span className='bg-clip-text flex lg:gap-x-4 md:gap-x-4 gap-x-4 items-center text-transparent bg-gradient lg:text-[16px] text-[12px] font-semibold capitalize'><p>Taruh ke Troli</p><img src={Image} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /> </span>
+                    <span className='bg-clip-text flex lg:gap-x-4 md:gap-x-4 gap-x-4 items-center text-transparent bg-gradient lg:text-[16px] text-[12px] font-semibold capitalize'><p>Taruh ke Troli</p><img src={TrollySec} className='lg:w-6 md:w-4 w-2 hidden lg:flex' /> </span>
                   </button>
                   <div className='grid grid-cols-2 gap-x-1'>
                     <a href='' className='p-2 border-2 rounded-[10px] hover:bg-hover hover:border-none place-content-center mt-4 flex md:gap-x-2 gap-x-1 items-center'>
-                      <img src={Image} className='w-3 lg:w-4' />
+                      <img src={Chat} className='w-3 lg:w-4' />
                       <p className="lg:lg-label2 md:md-label2 sm-label2 !font-bold text-secColor">Chat Penjual</p>
                     </a>
                     <a href='' className='p-2 border-2 rounded-[10px] hover:bg-hover hover:border-none place-content-center mt-4 flex md:gap-x-2 gap-x-1 items-center'>
-                      <img src={Image} className='w-3 lg:w-4' />
+                      <img src={Send} className='w-3 lg:w-4' />
                       <p className="lg:lg-label2 md:md-label2 sm-label2 !font-bold text-secColor">Bagikan</p>
                     </a>
                   </div>
@@ -181,9 +163,9 @@ function Detail() {
           </div>
           <div className='z-50 fixed bottom-0 right-0 left-0 h-fit py-3 px-4 bg-white lg:hidden flex'>
             <div className='container flex gap-x-2 mx-auto place-content-center'>
-              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[30px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 md:flex hidden font-semibold text-secColor capitalize'>Chat</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
-              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[30px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-secColor capitalize'><span className='md:hidden flex'>Masuk Troli</span><span className='md:flex hidden'>Taruh ke Troli</span></p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
-              <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-3 lg:pb-[85px] md:pb-[45px] lg:pt-[60px] md:pt-[30px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Beli Sekarang</p><img src={List} className='lg:w-8 md:w-6 w-4' /></button>
+              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[26px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 md:flex hidden font-semibold text-secColor capitalize bg-clip-text text-transparent bg-gradient'>Chat</p><img src={ChatSec} className='lg:w-8 md:w-6 w-4' /></button>
+              <button className="btn w-fit md:gap-x-6 gap-x-3 md:pb-[45px] md:pt-[26px] md:px-[30px]  hover:!bg-white hover:!border-[#FF3A75] lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-2 bg-transparent border-[#FF3A75]"><p className='lg:lg-title1 md:md-title1 sm-title1 bg-clip-text text-transparent bg-gradient font-semibold text-secColor capitalize'><span className='md:hidden flex'>Masuk Troli</span><span className='md:flex hidden'>Taruh ke Troli</span></p><img src={TrollySec} className='lg:w-8 md:w-6 w-4' /></button>
+              <button className="btn w-fit lg:gap-x-8 md:gap-x-6 gap-x-3 lg:pb-[85px] md:pb-[46px] lg:pt-[60px] md:pt-[28px] lg:px-[70px] md:px-[30px] px-5 lg:rounded-[40px] md:rounded-[20px] rounded-2xl bg-gradient-to-r border-none from-[#FF3A75] to-[#FF6E5A]"><p className='lg:lg-title1 md:md-title1 sm-title1 font-semibold text-white capitalize'>Beli Sekarang</p><img src={Wallet} className='lg:w-8 md:w-6 w-4' /></button>
             </div>
           </div>
         </div>
@@ -228,7 +210,6 @@ function Detail() {
                   </div>
                   <div className='md:col-span-9 col-span-12 lg:gap-x-4 md:gap-x-2'>
                     <span className='w-fit gap-x-1 flex md:my-4 mt-6 mb-2'>
-                      <img src={Star} className='w-3 lg:w-5 mr-1' />
                       <img src={Star} className='w-3 lg:w-5 mr-1' />
                       <img src={Star} className='w-3 lg:w-5 mr-1' />
                       <img src={Star} className='w-3 lg:w-5 mr-1' />

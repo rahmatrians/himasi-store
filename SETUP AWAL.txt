@@ -1,0 +1,7 @@
+untuk setup awal melalui terminal:
+yarn install
+
+untuk running app melalui terminal:
+yarn run dev 
+
+lalu buka localhost:3000
