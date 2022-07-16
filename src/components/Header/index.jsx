@@ -58,7 +58,7 @@ function Header() {
                     {/* <label for="my-modal-2" class="col-span-6 btn btn-sm btn-circle absolute right-2 top-2">✕</label> */}
                     <div class="grid grid-cols-6 gap-x-2">
                       <input type="text" placeholder="Mau cari apa hari ini?" className="col-span-5 input rounded-full text-center input-bordered w-full" />
-                      <a href="#" class="btn btn-circle border-none !bg-gradient"><img src={Search} width='24' /></a>
+                      <a href="#" class="btn btn-circle border-none !bg-white"><img src={Search} width='24' /></a>
                     </div>
                   </div>
                 </div>
@@ -72,7 +72,7 @@ function Header() {
             </div >
             <div className="navbar-center hidden lg:flex" >
               <input type="text" placeholder="Mau cari apa hari ini?" className="input float-left rounded-full text-center input-bordered w-[40rem]" />
-              <button className='btn btn-sm btn-circle border-none !bg-gradient relative right-10'><img src={Search} width='16' /></button>
+              <button className='btn btn-sm btn-circle border-none !bg-white relative right-10'><img src={Search} width='16' /></button>
             </div >
             <div className="navbar-end" >
               <button className="btn btn-ghost btn-circle" >

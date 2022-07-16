@@ -27,6 +27,11 @@ const OnTablet = ({ children }) => {
   return tablet ? children : null
 }
 
+const OnMaxNotebook = ({ children }) => {
+  const tablet = useMediaQuery({ maxWidth: 1024 })
+  return tablet ? children : null
+}
+
 const OnNotebook = ({ children }) => {
   const notebook = useMediaQuery({ minWidth: 641, maxWidth: 1024 })
   return notebook ? children : null
@@ -46,7 +51,7 @@ const OnDesktop = ({ children }) => {
 function Detail() {
   const [count, setCount] = useState(1);
   const [check, setCheck] = useState(0);
-  const [showDesc, setShowDesc] = useState(0);
+  const [showDesc, setShowDesc] = useState(1);
 
   let x = [5, 5, 5, 5];
   let y = [2, 2, 2, 2, 2, 2, 2, 2, 2];
@@ -104,11 +109,27 @@ function Detail() {
               </span>
             </div>
             <div className='my-8'>
-              <p className='md:md-paragraph1 sm-paragraph1 md:mb-2 !font-bold text-secColor'>Deskripsi</p>
-              <div className={showDesc % 2 != 0 ? 'h-[200px] overflow-auto' : ''}>
-                <p className='md:md-paragraph3 sm-paragraph3 md:mb-2 !font-medium text-justify opacity-[.55] text-secColor'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen booking and typesetting industry.
+              <p className='md:md-paragraph1 sm-paragraph1 md:mb-2 !font-bold text-secColor '>Deskripsi</p>
+              <div className={showDesc % 2 != 0 ? 'h-[200px] overflow-auto mt-4' : ''}>
+                <p className='md:md-paragraph3 sm-paragraph3 md:mb-2 !font-medium text-justify opacity-[.55] text-secColor'>Mobile Suit Gundam Unicorn PBT Dye Sub Keycap Set. 108 keys total.
                   <br /><br />
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like...</p>
+                  PERHATIAN: Pembeli diharapkan tanggung jawab sendiri untuk mencari tahu tentang layout dan fit keyboard masing-masing.
+                  <br /><br />
+                  Kami akan memberi rekomendasi dan masukan sebisa kami, namun jika layout atau stem tidak cocok kami tidak bisa terima refund atau ganti unit. Melakukan check out berarti sudah mengerti dan menyetujui syarat ini.
+                  <br /><br />
+                  Spec:
+                  <br />- PBT dye sub material. tidak akan pudar atau berminyak
+                  <br />- Injection molding method, warna keycap uniform seluruh keycap nya
+                  <br />- 129 keys total.
+                  <br />- SUDAH BERIKUT 1.75u shift, 1u ctrl alt fn.
+                  <br />- Cherry Profile
+                  <br /><br />
+                  Jadwal Pengiriman:
+                  <br />
+                  Senin - Sabtu : Pesanan sebelum Jam 12 siang akan dikirim di hari yang sama
+                  Minggu & Hari Libur: Tutup (tidak ada pengiriman)
+                  Lihat Lebih Sedikit Pesanan yang sudah di proses (pesanan diterima) tidak bisa di batalkan lagi.
+                </p>
               </div>
               <button onClick={() => setShowDesc(showDesc + 1)}><span className='bg-clip-text text-transparent bg-gradient lg:lg-paragraph3 md:md-paragraph3 sm-paragraph3 !font-bold'>{showDesc % 2 != 0 ? 'Tampilkan semua' : 'Tampilkan sedikit'}</span></button>
             </div>
@@ -305,81 +326,85 @@ function Detail() {
       </section>
 
       {/* footer */}
-      <section className='pt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
+      <section className='mt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
         <div className='container mx-auto'>
-          <div className='grid md:grid-cols-2 md:gap-x-24 md:gap-y-0 gap-y-12 bg-[#1d1441] md:rounded-[40px] rounded-[25px] md:p-[80px] p-12'>
+          <div className='grid lg:grid-cols-3 lg:gap-x-24 lg:gap-y-0 gap-y-12 bg-[#1d1441] md:rounded-[40px] rounded-[25px] md:p-[80px] p-12'>
             <div className=''>
               <span className='bg-clip-text text-transparent bg-gradient lg:lg-header1 md:md-header1 sm-header1'>Himasi Store</span>
-              <p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] text-justify md:mt-6 mt-3'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis mrhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.</p>
+              <p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] text-justify md:mt-6 mt-3'>Situs Marketplace aman dan terpercaya milik anak bangsa hadir untuk memberikan pelayanan yang terbaik kepada masyarakat Indonesia.</p>
             </div>
-            <OnAtLeastNotebook>
-              <div className='md:grid md:grid-cols-3'>
+            <OnDesktop>
+              <div className='md:grid md:grid-cols-3 col-span-2'>
                 <span className='md:justify-self-end'>
-                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Himasi Store</h3>
                   <ul>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Tentang Himasi Store</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Karir</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Blog</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Kebijakan Privasi</a></li>
                   </ul>
                 </span>
                 <span className='md:justify-self-end '>
-                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Pembeli</h3>
                   <ul>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Cara Belanja</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Himasi COD</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Jaminan Aman</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>FAQ</a></li>
                   </ul>
                 </span>
                 <span className='md:justify-self-end '>
-                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Title</h3>
+                  <h3 className='md:md-header1 font-bold text-white md:mb-12'>Penjual</h3>
                   <ul>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
-                    <li><p className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Sub Title</p></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Cara Berjualan</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Daftar Official Store</a></li>
+                    <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 text-white opacity-[.45] my-3'>Mitra Himasi</a></li>
                   </ul>
                 </span>
               </div>
-            </OnAtLeastNotebook>
-            <OnMobile>
+            </OnDesktop>
+            <OnMaxNotebook>
               <div className='grid gap-y-3'>
                 <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
                   <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
-                    Title
+                    Himasi Store
                   </div>
                   <div className="collapse-content">
                     <ul>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Tentang Himasi Store</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Karir</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Blog</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Kebijakan Privasi</a></li>
                     </ul>
                   </div>
                 </div>
                 <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
                   <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
-                    Title
+                    Pembeli
                   </div>
                   <div className="collapse-content">
                     <ul>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Cara Belanja</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Himasi COD</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Jaminan Aman</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>FAQ</a></li>
                     </ul>
                   </div>
                 </div>
                 <div tabIndex="0" className=" collapse collapse-arrow bg-[#241854] rounded-box">
                   <div className="collapse-title md:md-header1 font-bold text-white opacity-[.45]">
-                    Title
+                    Penjual
                   </div>
                   <div className="collapse-content">
                     <ul>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
-                      <li><p className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Sub Title</p></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Cara Berjualan</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Daftar Official Store</a></li>
+                      <li className='my-3'><a href='' className='md:md-paragraph2 sm-paragraph2 my-3 text-white opacity-[.45]'>Mitra Himasi</a></li>
                     </ul>
                   </div>
                 </div>
               </div>
-            </OnMobile>
+            </OnMaxNotebook>
           </div>
         </div>
       </section >
