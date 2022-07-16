@@ -159,7 +159,7 @@ function Detail() {
               <div className="mt-6">
                 <p className='md:md-paragraph3 sm-paragraph3text-secColor'>Subtotal</p>
                 <div className='mt-2'>
-                  <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp34.000</s></p>
+                  <p className="md:lg-label1 sm-label1 md:py-0 py-1 text-secColor opacity-[.55]"><s>Rp{((369000 * count) * 2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</s></p>
                   <span className='bg-clip-text flex text-transparent bg-gradient'><p className="md:md-subTitle1 sm-subTitle1">Rp{(369000 * count).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p></span>
                 </div>
                 <div className='grid gap-y-2 mt-6 md:static absolute right-4'>
@@ -326,7 +326,7 @@ function Detail() {
       </section>
 
       {/* footer */}
-      <section className='mt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
+      <section className='pt-20 md:py-[150px] py-12 md:px0 p-4 bg-[#f5f5f5]'>
         <div className='container mx-auto'>
           <div className='grid lg:grid-cols-3 lg:gap-x-24 lg:gap-y-0 gap-y-12 bg-[#1d1441] md:rounded-[40px] rounded-[25px] md:p-[80px] p-12'>
             <div className=''>
